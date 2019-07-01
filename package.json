@@ -4,6 +4,8 @@
   "description": "A utility for downloading latest Dell BIOS files",
   "main": "index.js",
   "author": "Grayson Doshier",
+  "repository": "github:RetroJect/DBIOSD",
+  "homepage": "https://github.com/RetroJect/DBIOSD/edit/master/package.json",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
