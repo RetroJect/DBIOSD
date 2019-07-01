@@ -8,6 +8,8 @@
 
 Purpose: Downloads Dell BIOS files specified from an input file
 
+Repository: https://github.com/RetroJect/DBIOSD
+
 Creation Date: 6/27/2019
 
 Modified Date: 7/1/2019
