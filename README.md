@@ -1,5 +1,5 @@
 # DBIOSD
-DBD (Dell BIOS Downloader) is a command line tool for downloading the latest BIOS files for Dell computers
+DBIOSD (Dell BIOS Downloader) is a command line tool for downloading the latest BIOS files for Dell computers
 
 ## Usage
 To use this tool you must create a file ('models.csv') in the root directory.
@@ -23,6 +23,8 @@ OptiPlex 9030 All In One
 
 ## Plans
 - Add more robust error checking. Currently very basic errors
-- Program logs to a file instead of stdout/stderror
+  - [COMPLETED] Added error checking for CSV parsing
+  - [COMPLETED] Updated info and errors to be more detailed
+- Program logs to a file instead of stdout/stderror [COMPLETED]
 - Specify the input/output of the program
-- Strcture check the input file (make sure one entry per line)
+- Structure check the input file (make sure one entry per line)

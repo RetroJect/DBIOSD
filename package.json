@@ -1,6 +1,6 @@
 {
   "name": "bios_downloader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility for downloading latest Dell BIOS files",
   "main": "index.js",
   "author": "Grayson Doshier",
@@ -11,6 +11,7 @@
     "cheerio": "^1.0.0-rc.3",
     "csv-parse": "^4.4.3",
     "download-file": "^0.1.5",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "winston": "^3.2.1"
   }
 }

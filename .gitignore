@@ -62,3 +62,9 @@ typings/
 
 # program input file
 models.csv
+
+# Build Folder
+Build
+
+# Downloaded BIOS Folder
+BIOS
