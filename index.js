@@ -12,7 +12,7 @@ Repository: https://github.com/RetroJect/DBIOSD
 
 Creation Date: 6/27/2019
 
-Modified Date: 7/2/2019
+Modified Date: 7/3/2019
 
 */
 
@@ -116,6 +116,12 @@ function download_file(page, name) {
 
 
 // -============ Main ==============-
+
+// Checks for command line arguments
+if(process.argv.length > 2){
+  file_name = process.argv[2]; // Sets the filename used
+}
+
 // Gets the Computer Models from a specified file
 try {
   file = fs.readFileSync(file_name);
