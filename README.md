@@ -21,17 +21,53 @@ OptiPlex 9020
 OptiPlex 9030 All In One
 ```
 
+## Usage
+1. Run `npm install` to get required packages and follow instructions for Semantic/Fomantic
+   1. Compile Semantic/Fomantic files:
+   2. `cd semantic`
+   3. `npx gulp build`
+2. To Run the program use `npm start`
+3. To create executable files for all archetectures of a platform
+   1. Windows: `npm run pack-win`
+   2. MacOS: `npm run pack-mac`
+   3. Linux: `npm run pack-linux`
+4. To create all possible combinations: `npm run pack-all`
+
 ## Plans
 | Feature                        | Implemented? | Version Implemented |
 | ------------------------------ | ------------ | ------------------- |
 | Better Error Checking          | Yes          | V1.0.1              |
 | Robust Logging                 | Yes          | V1.0.1              |
 | Specify Input File Name        | Yes          | V1.0.2              |
+| GUI                            | Yes          | V2.0.0              |
 | Computer Name Closest Matching | No           | N/A                 |
 
 ## Changelog
 Click the triangles to show the changes for that version.
+
+<!-- Start Version 2 -->
 <details open>
+  <summary>Version 2</summary>
+
+  <!-- Start Version 2.0.0 -->
+  <blockquote>
+    <details open>
+      <summary>Version 2.0.0</summary>
+      <blockquote>
+        <ul>
+          <li>Large Version Bump</li>
+          <li>Redesigned the entire program to feature a GUI</li>
+          <li>Built with Electron</li>
+          <li>Added Fomantic Fork of Semantic for UI Design</li>
+          <li>Created npm module of downloader used in program</li>
+        </ul>
+      </blockquote>
+    </details>
+  </blockquote>
+</details>
+<!-- End Version 2 -->
+
+<details>
   <summary>Version 1</summary>
 
   <!-- Start Version 1 -->
