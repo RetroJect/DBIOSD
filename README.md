@@ -23,11 +23,11 @@ OptiPlex 9030 All In One
 ```
 
 ## Usage
-1. Run `npm install` to get required packages and follow instructions for Semantic/Fomantic
+1. Run `npm install --save-dev` to get required packages and follow instructions for Semantic/Fomantic
    1. Compile Semantic/Fomantic files:
    2. `cd semantic`
    3. `npx gulp build`
-2. To Run the program use `npm start`
+2. To Run the program use `npm start` from the base directory
 3. To create executable files for all archetectures of a platform
    1. Windows: `npm run pack-win`
    2. MacOS: `npm run pack-mac`
@@ -50,8 +50,18 @@ Click the triangles to show the changes for that version.
 <details open>
   <summary>Version 2</summary>
 
-  <!-- Start Version 2.0.0 -->
+  <!-- Start Version 2.0.1 -->
   <blockquote>
+    <details>
+      <summary>Version 2.0.1</summary>
+      <blockquote>
+        <ul>
+          <li>Added a check to make sure the download link is not for a text file as some entries contain a .txt and .exe</li>
+          <li>Changed how download errors are reported to error.log</li>
+        </ul>
+      </blockquote>
+    </details>
+  <!-- Start Version 2.0.0 -->
     <details open>
       <summary>Version 2.0.0</summary>
       <blockquote>

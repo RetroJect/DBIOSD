@@ -74,21 +74,20 @@ function download_file(page, name) {
   const $ = cheerio.load(page);
   // Find the BIOS Table
   cur_page = $('#Drivers-Category\\.BI-Type\\.BIOS').children('table').children('tbody').children('tr');
-  // Gets the second link in the table
-  var link = "http://downloads.dell.com" + $(cur_page).find('a').eq(1).attr('href');
+  // Gets the link for the .exe file
+  var ext = $(cur_page).find('a').eq(1).attr('href');
+  // Checks if the page has two links in the last cell and takes only the .exe
+  if(ext.includes('.txt')){
+    ext = $(cur_page).find('a').eq(2).attr('href');
+  }
+  var link = "http://downloads.dell.com" + ext;
   // console.log('[STATUS] Now downloading latest BIOS for ' + name);
   logger.info('Downloading latest BIOS for %s', name);
   var cur_dir = path.join(dir, 'BIOS', name); // Creates the download directory of base/BIOS/model
   download(link, { directory: cur_dir }, (error) => {
     if (error) {
       // console.log(error);
-      let obj = {
-        error: error,
-        link: link,
-        name: name,
-        page: cur_page
-      }
-      logger.error('Bad Download for %s: %s',name, obj);
+      logger.error('Bad Download for %s: %s, %s',name, error, link);
       window.webContents.send('update-progress'); // Tells the progress bar to update
       window.webContents.send('update-status', '[ERROR] '+'Bad Download for'+name+'. Check error.log');
     } else {
