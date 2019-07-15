@@ -1,0 +1,234 @@
+<html lang="en">
+<!-- 
+ ____
+|,--.| Created by:
+||__|| Grayson Doshier
+|+  o| 
+|,'o | Language: HTML5
+`----' 
+
+Purpose: The UI for the program
+
+Repository: https://github.com/RetroJect/DBIOSD
+
+Creation Date: 7/8/2019
+
+Modified Date: 7/11/2019
+
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dell BIOS Downloader</title>
+  <!-- jQuery -->
+  <script>
+    const jQuery = require('jquery');
+    const $ = jQuery;
+    require('./semantic/dist/semantic.min.js');
+  </script>
+
+  <!-- Semantic/Fomantic -->
+  <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
+</head>
+
+<body>
+
+  <!-- Start Menu Bar -->
+  <div class="ui fluid steps">
+    <div class="active step" id="inputStepTitle">
+      <i class="excel file icon"></i>
+      <div class="content">
+        <div class="title">Input</div>
+        <div class="description">Choose the list of computers</div>
+      </div>
+    </div>
+    <div class="disabled step" id="outputStepTitle">
+      <i class="folder icon"></i>
+      <div class="content">
+        <div class="title">Output</div>
+        <div class="description">Tell us where you want the files saved</div>
+      </div>
+    </div>
+    <div class="disabled step" id="downloadStepTitle">
+      <i class="file download icon"></i>
+      <div class="content">
+        <div class="title">Download</div>
+        <div class="description">Start downloading BIOSes</div>
+      </div>
+    </div>
+  </div>
+  <!-- End Menu Bar -->
+
+  <!-- Start Input Section -->
+  <div class="ui container" id="inputStep">
+    <!-- Section Header -->
+    <h2 class="ui top attached centered header">Choose a File</h2>
+    <div class="ui placeholder attached segment" id="chooseFileSection">
+      <div class="ui two column center aligned grid">
+        <div class="ui vertical divider">Or</div>
+        <div class="middle aligned row">
+          <!-- Browse for File -->
+          <div class="column">
+            <div class="ui icon header">
+              <i class="upload icon"></i>
+              Select from your computer
+            </div>
+            <div class="ui primary labeled icon button" id="inputStepBrowse">
+              <i class="search icon"></i>
+              Browse...
+            </div>
+          </div>
+          <!-- Drag and Drop File -->
+          <div class="column" id="dropArea">
+            <div class="ui icon header">
+              <i class="file alternate icon"></i>
+              Drag & Drop
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui attached segment" style="display: none" id="previewSection">
+      <div class="ui fluid placeholder" id="preview">
+        <div class="header" id="previewHeader">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="paragpraph" id="previewContent">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Button Section -->
+    <div class="ui bottom attached segment">
+      <!-- Clear Button -->
+      <div class="ui disabled red animated button" id="inputStepClear">
+        <div class="visible content">Reset</div>
+        <div class="hidden content">
+          <i class="skull crossbones icon"></i>
+        </div>
+      </div>
+      <!-- Next Button -->
+      <div class="ui disabled animated button" id="inputStepNext">
+        <div class="visible content">Next</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Input Section -->
+
+  <!-- Start Output Section -->
+  <div class="ui container" style="display: none" id="outputStep">
+    <!-- Section Header -->
+    <h2 class="ui top attached centered header">Choose a Location</h2>
+    <div class="ui placeholder attached segment">
+      <div class="ui icon header">
+        <i class="download icon"></i>
+        <div class="content">
+          Select a folder
+          <div class="sub header" id="currentDir"></div>
+        </div>
+      </div>
+      <div class="ui primary labeled icon button" id="outputStepBrowse">
+        <i class="search icon"></i>
+        Browse...
+      </div>
+    </div>
+    <div class="ui attached warning message">
+      <div class="header">
+        BIOS Locations
+      </div>
+      <p>
+        When downloading BIOS files, a new directory called 'BIOS' will be created under the directory you chose.
+        Inside this directory will be individual locations for each computer model.
+      </p>
+    </div>
+    <!-- Button Section -->
+    <div class="ui bottom attached segment">
+      <!-- Clear Button
+      <div class="ui red animated button" id="outputStepClear">
+        <div class="visible content">Reset</div>
+        <div class="hidden content">
+          <i class="skull crossbones icon"></i>
+        </div>
+      </div>
+      -->
+      <!-- Next Button -->
+      <div class="ui disabled animated button" id="outputStepNext">
+        <div class="visible content">Next</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Output Section -->
+
+  <!-- Start Download Section -->
+  <div class="ui container" style="display: none" id="downloadStep">
+    <!-- Section Header -->
+    <h2 class="ui top attached centered header">Downloading</h2>
+    <div class="ui placeholder attached segment">
+      <div class="ui indicating progress" id="downloadBar">
+        <div class="label">Waiting to start Download</div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="ui attached message">
+      <div class="ui header">Log</div>
+      <ul id="log"></ul>
+    </div>
+    <!-- Button Section -->
+    <div class="ui bottom attached segment">
+      <!-- Quit Button -->
+      <div class="ui animated button" id="downloadStepQuit">
+        <div class="visible content">Quit</div>
+        <div class="hidden content">
+          <i class="close icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Download Section -->
+
+
+  <!-- Start Footer Section -->
+  <div class="ui bottom fixed text menu">
+    <button class="ui icon button right item" onclick="openAboutModal()">
+      <i class="question icon"></i>
+    </button>
+  </div>
+  <!-- End Footer Section -->
+
+  <!-- About Modal -->
+  <div class="ui modal" id="aboutModal">
+    <i class="close icon"></i>
+    <div class="header"><i class="question icon"></i>About</div>
+    <div class="content">
+      <h3>Dell BIOS Downloader</h3>
+      <ul>
+        <li>Created by <a href="https://github.com/RetroJect/">Grayson Doshier | <span style="font-family: magneto, sans-serif; font-style: normal;">RetroJect</span></a></li>
+        <li id="aboutVersion"></li>
+        <li>Source files hosted on <a href="https://github.com/RetroJect/DBIOSD">GitHub<i class="github icon"></i></a></li>
+        <li>All files are sourced from <a href="https://downloads.dell.com/">Downloads.Dell.com</a></li>
+      </ul>
+      <p><span class="ui grey text">Tip:</span> To reset the entire program press CTRL+SHIFT+R</p>
+    </div>
+    <div class="actions">
+      <div class="ui positive right button">
+        Close
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+
+</body>
+
+</html>

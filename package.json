@@ -1,8 +1,15 @@
 {
   "name": "bios_downloader",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A utility for downloading latest Dell BIOS files",
   "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "pack-win": "electron-packager . BIOS-Downloader --icon='./assets/icon.ico' --overwrite --asar --platform=win32 --arch=all --prune=true --out=Build/Windows",
+    "pack-mac": "electron-packager . --icon='./assets/icon.icns' --overwrite --platform=darwin --arch=all --asar --prune=true --out=Build/MacOS",
+    "pack-linux": "electron-packager .  BIOS-Downloader --icon='./assets/icon.png' --overwrite --asar --platform=linux --arch=all --prune=true --out=Build/Linux",
+    "pack-all": "electron-packager . BIOS-Downloader --all --icon='./assets/icon.icns' --asar --prune=true --out=Build/All"
+  },
   "author": "Grayson Doshier",
   "repository": "github:RetroJect/DBIOSD",
   "homepage": "https://github.com/RetroJect/DBIOSD/edit/master/package.json",
@@ -11,7 +18,13 @@
     "cheerio": "^1.0.0-rc.3",
     "csv-parse": "^4.4.3",
     "download-file": "^0.1.5",
+    "fomantic-ui": "^2.7.6",
+    "jquery": "^3.4.1",
     "request": "^2.88.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "electron-packager": "^14.0.1"
   }
 }
