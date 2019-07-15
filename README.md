@@ -22,6 +22,16 @@ OptiPlex 9020
 OptiPlex 9030 All In One
 ```
 
+## Screenshots
+### Choosing an input file
+![](/screenshots/DBIOSD_1.PNG)
+
+### Choosing an output location
+![](/screenshots/DBIOSD_2.PNG)
+
+### Downloading
+![](/screenshots/DBIOSD_3.PNG)
+
 ## Usage
 1. Run `npm install --save-dev` to get required packages and follow instructions for Semantic/Fomantic
    1. Compile Semantic/Fomantic files:
