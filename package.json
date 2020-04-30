@@ -19,7 +19,7 @@
     "csv-parse": "^4.4.3",
     "download-file": "^0.1.5",
     "fomantic-ui": "^2.7.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "request": "^2.88.0",
     "winston": "^3.2.1"
   },
